@@ -1,6 +1,7 @@
 import { Button } from "~/components/ui/button";
 import { Play, Menu, X } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function HomePage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,17 +35,17 @@ export default function HomePage() {
                 コンセプト
               </button>
               <div className="flex items-center gap-4">
-                <img
+                <Image
                   src="/expo-2025-logo.png"
                   alt="EXPO 2025"
                   className="h-10"
                 />
-                <img
+                <Image
                   src="/osaka-kansai-logo.png"
                   alt="大阪・関西万博"
                   className="h-10"
                 />
-                <img
+                <Image
                   src="/team-expo-logo.png"
                   alt="Team Expo"
                   className="h-10"
@@ -86,12 +87,12 @@ export default function HomePage() {
           <div className="lg:hidden">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <img
+                <Image
                   src="/expo-2025-logo.png"
                   alt="EXPO 2025"
                   className="h-8"
                 />
-                <img
+                <Image
                   src="/osaka-kansai-logo.png"
                   alt="大阪・関西万博"
                   className="h-8"
@@ -150,7 +151,7 @@ export default function HomePage() {
                     </Button>
                   </div>
                   <div className="flex items-center justify-center gap-3 pt-4">
-                    <img
+                    <Image
                       src="/team-expo-logo.png"
                       alt="Team Expo"
                       className="h-8"
@@ -169,12 +170,12 @@ export default function HomePage() {
         >
           {/* Background with traditional performers */}
           <div className="absolute inset-0 flex items-center justify-between px-4 sm:px-8 lg:px-12">
-            <img
+            <Image
               src="/noh-performer.png"
               alt="Noh performer"
               className="h-48 object-cover opacity-80 sm:h-64 lg:h-96 lg:opacity-100"
             />
-            <img
+            <Image
               src="/oni-mask-performer.png"
               alt="Oni performer"
               className="h-48 object-cover opacity-80 sm:h-64 lg:h-96 lg:opacity-100"
@@ -228,7 +229,7 @@ export default function HomePage() {
 
           <div className="mx-auto max-w-[800px]">
             <div className="relative overflow-hidden rounded-lg bg-black">
-              <img
+              <Image
                 src="/oni-mask.png"
                 alt="Video thumbnail"
                 className="h-48 w-full object-cover sm:h-64 lg:h-96"
@@ -245,7 +246,7 @@ export default function HomePage() {
                 <div className="mb-1 text-base font-bold sm:mb-2 sm:text-lg">
                   鬼とは？
                 </div>
-                <div className="text-xs sm:text-sm">What's ONI ?</div>
+                <div className="text-xs sm:text-sm">What&apos;s ONI ?</div>
               </div>
             </div>
           </div>
@@ -256,14 +257,14 @@ export default function HomePage() {
           <div className="mx-auto max-w-6xl">
             <div className="grid grid-cols-1 gap-4 sm:gap-8 lg:grid-cols-2">
               <div className="order-1">
-                <img
+                <Image
                   src="/earth-from-space.png"
                   alt="Earth from space"
                   className="h-48 w-full rounded-lg object-cover sm:h-56 lg:h-64"
                 />
               </div>
               <div className="order-2">
-                <img
+                <Image
                   src="/circular-white-building.png"
                   alt="EXPO building"
                   className="h-48 w-full rounded-lg object-cover sm:h-56 lg:h-64"
@@ -285,7 +286,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-6 flex justify-center sm:mt-8">
-            <img
+            <Image
               src="/japanese-person-black-kimono.png"
               alt="Performer portrait"
               className="h-32 rounded-lg object-cover sm:h-40 lg:h-48"
