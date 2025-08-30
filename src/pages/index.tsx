@@ -17,6 +17,7 @@ export default function HomePage() {
       { id: "concept", label: "コンセプト" },
       { id: "event-overview", label: "開催概要" },
       { id: "artists", label: "出演者" },
+      { id: "producer", label: "プロデューサー" },
       { id: "access", label: "会場アクセス" },
       { id: "ticket-info", label: "チケット情報" },
       { id: "sns", label: "お問い合わせ" },
@@ -54,14 +55,18 @@ export default function HomePage() {
         description:
           "京都府出身。20歳からベースを始め、様々なジャンルで活動。2012年より「kogakusyu翔」に参加し、和楽器と洋楽器を融合させた音楽で高い評価を得る。現在はソロアーティストのサポートで活躍中。",
       },
-      {
-        name: "渋谷牧人",
-        role: "作曲・プロデューサー",
-        image: "渋谷牧人.webp",
-        description:
-          "宮城教育大学卒業。作曲家・一般社団法人「和音」専務理事。クラシックを基盤に、和楽器や能、琉球音楽との融合を探求。「雨ニモマケズ」「首里」などの舞台作品を発表し、国際的に活動している。",
-      },
     ],
+    [],
+  );
+
+  const producer = useMemo(
+    () => ({
+      name: "渋谷牧人",
+      role: "作曲・プロデューサー",
+      image: "渋谷牧人.webp",
+      description:
+        "宮城教育大学卒業。作曲家・一般社団法人「和音」専務理事。クラシックを基盤に、和楽器や能、琉球音楽との融合を探求。「雨ニモマケズ」「首里」などの舞台作品を発表し、国際的に活動している。",
+    }),
     [],
   );
 
@@ -268,9 +273,7 @@ export default function HomePage() {
         {/* Artists section */}
         <section id="artists" className="mb-12 sm:mb-16">
           <h2 className="mb-8 text-center text-2xl font-bold text-yellow-400 sm:text-3xl">
-            {artists[currentArtist]?.name != "渋谷牧人"
-              ? "出演者紹介"
-              : artists[currentArtist]?.role}
+            出演者紹介
           </h2>
 
           <div className="mx-auto max-w-4xl">
@@ -326,9 +329,7 @@ export default function HomePage() {
                         <div className="mb-4 h-4 w-36 animate-pulse rounded bg-gray-700 sm:h-5" />
                       ) : (
                         <p className="mb-4 text-sm text-yellow-400 sm:text-base">
-                          {artists[currentArtist]?.name != "渋谷牧人"
-                            ? (artists[currentArtist]?.role ?? "")
-                            : ""}
+                          {artists[currentArtist]?.role}
                         </p>
                       )}
 
@@ -384,6 +385,48 @@ export default function HomePage() {
                   aria-label={`Go to artist ${index + 1}`}
                 />
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Producer Section*/}
+        <section id="producer" className="mb-12 sm:mb-16">
+          <h2 className="mb-8 text-center text-2xl font-bold text-yellow-400 sm:text-3xl">
+            {producer.role}
+          </h2>
+          <div className="mx-auto max-w-4xl">
+            <div className="rounded-lg bg-gray-900/50 p-6 sm:p-8">
+              {/* Display all artists */}
+              <div className="space-y-8">
+                <div className="flex flex-col items-center gap-6 lg:flex-row lg:gap-8">
+                  {/* Artist image */}
+                  <div className="relative h-36 flex-shrink-0 sm:h-48">
+                    <div className="h-32 w-32 overflow-hidden rounded-full border-4 border-yellow-400 sm:h-40 sm:w-40 lg:h-48 lg:w-48">
+                      <Image
+                        src={`/${producer.image}`}
+                        alt={producer.name}
+                        width={200}
+                        height={200}
+                        className="h-full w-full object-cover"
+                        priority
+                      />
+                    </div>
+                  </div>
+
+                  {/* Artist info */}
+                  <div className="flex-1 text-center lg:text-left">
+                    <h3 className="mb-2 text-xl font-bold text-white sm:text-2xl">
+                      {producer.name}
+                    </h3>
+                    <p className="mb-4 text-sm text-yellow-400 sm:text-base">
+                      {producer.role}
+                    </p>
+                    <p className="text-sm leading-relaxed text-gray-300 sm:text-base">
+                      {producer.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
