@@ -268,7 +268,9 @@ export default function HomePage() {
         {/* Artists section */}
         <section id="artists" className="mb-12 sm:mb-16">
           <h2 className="mb-8 text-center text-2xl font-bold text-yellow-400 sm:text-3xl">
-            出演者紹介
+            {artists[currentArtist]?.name != "渋谷牧人"
+              ? "出演者紹介"
+              : artists[currentArtist]?.role}
           </h2>
 
           <div className="mx-auto max-w-4xl">
@@ -324,7 +326,9 @@ export default function HomePage() {
                         <div className="mb-4 h-4 w-36 animate-pulse rounded bg-gray-700 sm:h-5" />
                       ) : (
                         <p className="mb-4 text-sm text-yellow-400 sm:text-base">
-                          {artists[currentArtist]?.role ?? ""}
+                          {artists[currentArtist]?.name != "渋谷牧人"
+                            ? (artists[currentArtist]?.role ?? "")
+                            : ""}
                         </p>
                       )}
 
