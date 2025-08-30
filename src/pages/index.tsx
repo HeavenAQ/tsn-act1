@@ -216,7 +216,7 @@ export default function HomePage() {
       {/* Main content */}
       <main className="mt-16 px-4 py-8 sm:mt-20 sm:px-6 sm:py-12 lg:px-8">
         {/* Concept section */}
-        <section className="mb-12 sm:mb-16">
+        <section className="my-12 sm:my-16 md:mt-0">
           <div className="mx-auto max-w-4xl">
             <h2 className="mb-6 text-center text-2xl font-bold text-yellow-400 sm:mb-8 sm:text-3xl">
               公演コンセプト
@@ -233,7 +233,8 @@ export default function HomePage() {
 
             <div className="space-y-6 text-sm leading-relaxed text-gray-300 sm:text-base">
               <p>
-                本公演「音橋空環」は、日本の伝統芸術である能楽・書道・邦楽を基盤に、現代的な視点と表現を加えた舞台芸術作品です。
+                本公演「音橋空環」は、能楽・書道・邦楽を基盤に現代的な表現を融合した舞台芸術作品です。
+                象徴的モチーフである「水」を通じ、弘法大師（空海）と八田與一を題材に、日本と台湾、過去と現在を結ぶ文化の架け橋を描きます。
               </p>
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -262,10 +263,6 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-
-              <p>
-                公演の後編では「水」を象徴的モチーフとし、弘法大師（空海）と八田與一を通じて、日本と台湾、そして過去と現在をつなぐ文化的な橋を築く作品を初演いたします。
-              </p>
             </div>
           </div>
         </section>
@@ -465,18 +462,12 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
-                  <div className="font-semibold text-yellow-400">
-                    主催・制作
-                  </div>
+                  <div className="font-semibold text-yellow-400">主催</div>
                   <div>
-                    作曲・プロデューサー：渋谷牧人
+                    ・一般社団法人「和音」
                     <br />
-                    一般社団法人「和音」
+                    ・株式会社tsn
                   </div>
-                </div>
-                <div className="grid grid-cols-1 gap-2 sm:gap-4">
-                  <div className="font-semibold text-yellow-400">主催.運営</div>
-                  <div>和音・tsn</div>
                 </div>
               </div>
             </div>
@@ -556,7 +547,7 @@ export default function HomePage() {
           <p className="mx-auto mb-8 max-w-2xl text-sm leading-relaxed text-gray-300 sm:text-base">
             公演に関するお問い合わせは
             <br />
-            一般「株式会社tsn」までご連絡ください。
+            「株式会社tsn」までご連絡ください。
           </p>
           <div className="mx-auto text-sm text-gray-400">
             <div className="flex w-full justify-evenly">
