@@ -17,6 +17,7 @@ export default function HomePage() {
       { id: "concept", label: "コンセプト" },
       { id: "event-overview", label: "開催概要" },
       { id: "artists", label: "出演者" },
+      { id: "producer", label: "プロデューサー" },
       { id: "access", label: "会場アクセス" },
       { id: "ticket-info", label: "チケット情報" },
       { id: "sns", label: "お問い合わせ" },
@@ -54,14 +55,18 @@ export default function HomePage() {
         description:
           "京都府出身。20歳からベースを始め、様々なジャンルで活動。2012年より「kogakusyu翔」に参加し、和楽器と洋楽器を融合させた音楽で高い評価を得る。現在はソロアーティストのサポートで活躍中。",
       },
-      {
-        name: "渋谷牧人",
-        role: "作曲・プロデューサー",
-        image: "渋谷牧人.webp",
-        description:
-          "宮城教育大学卒業。作曲家・一般社団法人「和音」専務理事。クラシックを基盤に、和楽器や能、琉球音楽との融合を探求。「雨ニモマケズ」「首里」などの舞台作品を発表し、国際的に活動している。",
-      },
     ],
+    [],
+  );
+
+  const producer = useMemo(
+    () => ({
+      name: "渋谷牧人",
+      role: "作曲・プロデューサー",
+      image: "渋谷牧人.webp",
+      description:
+        "宮城教育大学卒業。作曲家・一般社団法人「和音」専務理事。クラシックを基盤に、和楽器や能、琉球音楽との融合を探求。「雨ニモマケズ」「首里」などの舞台作品を発表し、国際的に活動している。",
+    }),
     [],
   );
 
@@ -211,7 +216,7 @@ export default function HomePage() {
       {/* Main content */}
       <main className="mt-16 px-4 py-8 sm:mt-20 sm:px-6 sm:py-12 lg:px-8">
         {/* Concept section */}
-        <section className="mb-12 sm:mb-16">
+        <section className="my-12 sm:my-16 md:mt-0">
           <div className="mx-auto max-w-4xl">
             <h2 className="mb-6 text-center text-2xl font-bold text-yellow-400 sm:mb-8 sm:text-3xl">
               公演コンセプト
@@ -228,7 +233,8 @@ export default function HomePage() {
 
             <div className="space-y-6 text-sm leading-relaxed text-gray-300 sm:text-base">
               <p>
-                本公演「音橋空環」は、日本の伝統芸術である能楽・書道・邦楽を基盤に、現代的な視点と表現を加えた舞台芸術作品です。
+                本公演「音橋空環」は、能楽・書道・邦楽を基盤に現代的な表現を融合した舞台芸術作品です。
+                象徴的モチーフである「水」を通じ、弘法大師（空海）と八田與一を題材に、日本と台湾、過去と現在を結ぶ文化の架け橋を描きます。
               </p>
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -257,10 +263,6 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-
-              <p>
-                公演の後編では「水」を象徴的モチーフとし、弘法大師（空海）と八田與一を通じて、日本と台湾、そして過去と現在をつなぐ文化的な橋を築く作品を初演いたします。
-              </p>
             </div>
           </div>
         </section>
@@ -302,7 +304,7 @@ export default function HomePage() {
                           width={200}
                           height={200}
                           className="h-full w-full object-cover"
-                          onLoadingComplete={() => setIsImgLoading(false)}
+                          onLoad={() => setIsImgLoading(false)}
                           priority
                         />
                       </div>
@@ -324,7 +326,7 @@ export default function HomePage() {
                         <div className="mb-4 h-4 w-36 animate-pulse rounded bg-gray-700 sm:h-5" />
                       ) : (
                         <p className="mb-4 text-sm text-yellow-400 sm:text-base">
-                          {artists[currentArtist]?.role ?? ""}
+                          {artists[currentArtist]?.role}
                         </p>
                       )}
 
@@ -384,6 +386,48 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Producer Section*/}
+        <section id="producer" className="mb-12 sm:mb-16">
+          <h2 className="mb-8 text-center text-2xl font-bold text-yellow-400 sm:text-3xl">
+            {producer.role}
+          </h2>
+          <div className="mx-auto max-w-4xl">
+            <div className="rounded-lg bg-gray-900/50 p-6 sm:p-8">
+              {/* Display all artists */}
+              <div className="space-y-8">
+                <div className="flex flex-col items-center gap-6 lg:flex-row lg:gap-8">
+                  {/* Artist image */}
+                  <div className="relative h-36 flex-shrink-0 sm:h-48">
+                    <div className="h-32 w-32 overflow-hidden rounded-full border-4 border-yellow-400 sm:h-40 sm:w-40 lg:h-48 lg:w-48">
+                      <Image
+                        src={`/${producer.image}`}
+                        alt={producer.name}
+                        width={200}
+                        height={200}
+                        className="h-full w-full object-cover"
+                        priority
+                      />
+                    </div>
+                  </div>
+
+                  {/* Artist info */}
+                  <div className="flex-1 text-center lg:text-left">
+                    <h3 className="mb-2 text-xl font-bold text-white sm:text-2xl">
+                      {producer.name}
+                    </h3>
+                    <p className="mb-4 text-sm text-yellow-400 sm:text-base">
+                      {producer.role}
+                    </p>
+                    <p className="text-sm leading-relaxed text-gray-300 sm:text-base">
+                      {producer.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Event details section */}
         <section id="event-overview" className="mb-12 sm:mb-16">
           <div className="mx-auto max-w-4xl">
@@ -418,18 +462,12 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
-                  <div className="font-semibold text-yellow-400">
-                    主催・制作
-                  </div>
+                  <div className="font-semibold text-yellow-400">主催</div>
                   <div>
-                    作曲・プロデューサー：渋谷牧人
+                    ・一般社団法人「和音」
                     <br />
-                    一般社団法人「和音」
+                    ・株式会社tsn
                   </div>
-                </div>
-                <div className="grid grid-cols-1 gap-2 sm:gap-4">
-                  <div className="font-semibold text-yellow-400">主催.運営</div>
-                  <div>和音・tsn</div>
                 </div>
               </div>
             </div>
@@ -509,7 +547,7 @@ export default function HomePage() {
           <p className="mx-auto mb-8 max-w-2xl text-sm leading-relaxed text-gray-300 sm:text-base">
             公演に関するお問い合わせは
             <br />
-            一般「株式会社tsn」までご連絡ください。
+            「株式会社tsn」までご連絡ください。
           </p>
           <div className="mx-auto text-sm text-gray-400">
             <div className="flex w-full justify-evenly">
