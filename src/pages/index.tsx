@@ -43,7 +43,7 @@ export default function HomePage() {
       },
       {
         name: "山中裕貴",
-        role: "篠笛奏者",
+        role: "和太鼓・篠笛奏者",
         image: "山中裕貴.webp",
         description:
           "兵庫県尼崎市出身。10歳で和太鼓に触れ、大阪音楽大学卒業後、kogakusyu翔に加入。2021年からソロ活動を開始し、和太鼓・篠笛奏者として国内外で演奏活動を行っている。",
@@ -427,7 +427,7 @@ export default function HomePage() {
               <div className="space-y-4 text-sm text-gray-300 sm:space-y-6 sm:text-base">
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
                   <div className="font-semibold text-yellow-400">公演日</div>
-                  <div>2025年11月30日（日）14:00-16:00</div>
+                  <div>2025年11月30日（日）</div>
                 </div>
 
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
@@ -444,17 +444,32 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
                   <div className="font-semibold text-yellow-400">会場</div>
                   <div>
-                    堺能楽会館
-                    <br />
-                    〒590-0974 大阪府堺市堺区大浜北町3丁4-7
+                    堺能楽会館 (〒590-0974 大阪府堺市堺区大浜北町3丁4-7)
                   </div>
                 </div>
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
                   <div className="font-semibold text-yellow-400">主催</div>
                   <div>
-                    ・一般社団法人「和音」
+                    一般社団法人「和音」
                     <br />
-                    ・株式会社tsn
+                    株式会社tsn
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 gap-2 sm:gap-4">
+                  <div className="font-semibold text-yellow-400">後援</div>
+                  <div>堺東ロータリークラブ</div>
+                </div>
+                <div className="grid grid-cols-1 gap-2 sm:gap-4">
+                  <div className="font-semibold text-yellow-400">主催</div>
+                  <div>
+                    アーク不動産株式会社
+                    <br />
+                    社会医療法人啓仁会咲花病院
+                    <br />
+                    株式会社トプコン
+                    <br />
+                    伊藤嘉邦
+                    <br />
                   </div>
                 </div>
               </div>
