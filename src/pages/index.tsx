@@ -304,7 +304,7 @@ export default function HomePage() {
                           width={200}
                           height={200}
                           className="h-full w-full object-cover"
-                          onLoadingComplete={() => setIsImgLoading(false)}
+                          onLoad={() => setIsImgLoading(false)}
                           priority
                         />
                       </div>
