@@ -1,10 +1,11 @@
 "use client";
 
 import { Button } from "../components/ui/button";
-import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
-import { useMemo, useState } from "react";
+import { Menu, X, ChevronLeft, ChevronRight, Mail, Phone } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function HomePage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -16,51 +17,53 @@ export default function HomePage() {
       { id: "concept", label: "コンセプト" },
       { id: "event-overview", label: "開催概要" },
       { id: "artists", label: "出演者" },
-      { id: "program", label: "公演プログラム" },
       { id: "access", label: "会場アクセス" },
       { id: "ticket-info", label: "チケット情報" },
-      { id: "sns", label: "公式SNS" },
+      { id: "sns", label: "お問い合わせ" },
     ],
     [],
   );
 
-  const artists = [
-    {
-      name: "津村禮次郎",
-      role: "能楽師",
-      image: "津村禮次郎.webp",
-      description:
-        "観世流緑泉会代表、重要無形文化財（能楽総合）保持者。1942年福岡県生まれ。一橋大学卒業後、津村紀三子、観世喜之に師事。1974年に緑泉会を継承し、伝統能楽の継承発展に尽力している。",
-    },
-    {
-      name: "永山玳潤",
-      role: "書道家",
-      image: "永山玳潤.webp",
-      description:
-        "1971年大阪府高石市生まれ。4歳より書道を学び、プロ書道家として国内外で活動。JRA有馬記念の題字や企業ロゴを手がけ、古典に基づく伝統と独創性を融合させた書の表現を世界に発信している。",
-    },
-    {
-      name: "山中裕貴",
-      role: "篠笛奏者",
-      image: "山中裕貴.webp",
-      description:
-        "兵庫県尼崎市出身。10歳で和太鼓に触れ、大阪音楽大学卒業後、kogakusyu翔に加入。2021年からソロ活動を開始し、和太鼓・篠笛奏者として国内外で演奏活動を行っている。",
-    },
-    {
-      name: "北村和也",
-      role: "コントラバス奏者",
-      image: "北村和也.webp",
-      description:
-        "京都府出身。20歳からベースを始め、様々なジャンルで活動。2012年より「kogakusyu翔」に参加し、和楽器と洋楽器を融合させた音楽で高い評価を得る。現在はソロアーティストのサポートで活躍中。",
-    },
-    {
-      name: "渋谷牧人",
-      role: "作曲・プロデューサー",
-      image: "渋谷牧人.webp",
-      description:
-        "宮城教育大学卒業。作曲家・一般社団法人「和音」専務理事。クラシックを基盤に、和楽器や能、琉球音楽との融合を探求。「雨ニモマケズ」「首里」などの舞台作品を発表し、国際的に活動している。",
-    },
-  ];
+  const artists = useMemo(
+    () => [
+      {
+        name: "津村禮次郎",
+        role: "能楽師",
+        image: "津村禮次郎.webp",
+        description:
+          "観世流緑泉会代表、重要無形文化財（能楽総合）保持者。1942年福岡県生まれ。一橋大学卒業後、津村紀三子、観世喜之に師事。1974年に緑泉会を継承し、伝統能楽の継承発展に尽力している。",
+      },
+      {
+        name: "永山玳潤",
+        role: "書道家",
+        image: "永山玳潤.webp",
+        description:
+          "1971年大阪府高石市生まれ。4歳より書道を学び、プロ書道家として国内外で活動。JRA有馬記念の題字や企業ロゴを手がけ、古典に基づく伝統と独創性を融合させた書の表現を世界に発信している。",
+      },
+      {
+        name: "山中裕貴",
+        role: "篠笛奏者",
+        image: "山中裕貴.webp",
+        description:
+          "兵庫県尼崎市出身。10歳で和太鼓に触れ、大阪音楽大学卒業後、kogakusyu翔に加入。2021年からソロ活動を開始し、和太鼓・篠笛奏者として国内外で演奏活動を行っている。",
+      },
+      {
+        name: "北村和也",
+        role: "コントラバス奏者",
+        image: "北村和也.webp",
+        description:
+          "京都府出身。20歳からベースを始め、様々なジャンルで活動。2012年より「kogakusyu翔」に参加し、和楽器と洋楽器を融合させた音楽で高い評価を得る。現在はソロアーティストのサポートで活躍中。",
+      },
+      {
+        name: "渋谷牧人",
+        role: "作曲・プロデューサー",
+        image: "渋谷牧人.webp",
+        description:
+          "宮城教育大学卒業。作曲家・一般社団法人「和音」専務理事。クラシックを基盤に、和楽器や能、琉球音楽との融合を探求。「雨ニモマケズ」「首里」などの舞台作品を発表し、国際的に活動している。",
+      },
+    ],
+    [],
+  );
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -82,9 +85,18 @@ export default function HomePage() {
     setCurrentArtist((prev) => (prev - 1 + artists.length) % artists.length);
   };
 
+  const [isImgLoading, setIsImgLoading] = useState(true);
+  useEffect(() => {
+    setIsImgLoading(true);
+    const next = new window.Image();
+    const path = `/${artists[currentArtist]?.image}`;
+    next.src = path;
+  }, [currentArtist, artists]);
+  const navBtnBase =
+    "absolute top-1/2 -translate-y-1/2 transform cursor-pointer rounded-full bg-yellow-400 p-2 text-black transition-all hover:bg-yellow-500";
+
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Header */}
       {/* Header */}
       <header className="relative z-50">
         {/* Top navigation bar */}
@@ -186,7 +198,7 @@ export default function HomePage() {
         >
           <div className="absolute inset-0 rounded-xl">
             <Image
-              src="/hero.jpg"
+              src="/hero.webp"
               alt="音橋空環 - 能楽公演2025"
               fill
               className="rounded-2xl object-contain object-top md:object-center"
@@ -262,34 +274,74 @@ export default function HomePage() {
           <div className="mx-auto max-w-4xl">
             <div className="relative">
               {/* Carousel container */}
-              <div className="rounded-lg bg-gray-900/50 p-6 sm:p-8">
-                <div className="flex flex-col items-center gap-6 lg:flex-row lg:gap-8">
-                  {/* Artist image */}
-                  <div className="flex-shrink-0">
-                    <div className="h-32 w-32 overflow-hidden rounded-full border-4 border-yellow-400 sm:h-40 sm:w-40 lg:h-48 lg:w-48">
-                      <Image
-                        src={`/${artists[currentArtist]?.image}`}
-                        alt={artists[currentArtist]?.name ?? ""}
-                        width={200}
-                        height={200}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                  </div>
+              <div className="h-[390px] rounded-lg bg-gray-900/50 p-6 sm:h-[430px] sm:p-8 lg:h-auto">
+                <AnimatePresence mode="popLayout" initial={false}>
+                  <motion.div
+                    key={currentArtist}
+                    initial={{ opacity: 0, x: 8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -8 }}
+                    transition={{ duration: 0.25 }}
+                    className="flex flex-col items-center gap-6 lg:flex-row lg:gap-8"
+                  >
+                    {/* Artist image */}
+                    <div className="relative h-36 flex-shrink-0 sm:h-48">
+                      {/* Image skeleton */}
+                      {isImgLoading && (
+                        <div className="h-32 w-32 animate-pulse overflow-hidden rounded-full border-4 border-yellow-400 bg-gray-700 sm:h-40 sm:w-40 lg:h-48 lg:w-48" />
+                      )}
 
-                  {/* Artist info */}
-                  <div className="flex-1 text-center lg:text-left">
-                    <h3 className="mb-2 text-xl font-bold text-white sm:text-2xl">
-                      {artists[currentArtist]?.name ?? ""}
-                    </h3>
-                    <p className="mb-4 text-sm text-yellow-400 sm:text-base">
-                      {artists[currentArtist]?.role ?? ""}
-                    </p>
-                    <p className="text-sm leading-relaxed text-gray-300 sm:text-base">
-                      {artists[currentArtist]?.description ?? ""}
-                    </p>
-                  </div>
-                </div>
+                      <div
+                        className={`h-32 w-32 overflow-hidden rounded-full border-4 border-yellow-400 sm:h-40 sm:w-40 lg:h-48 lg:w-48 ${
+                          isImgLoading ? "invisible" : "visible"
+                        }`}
+                      >
+                        <Image
+                          src={`/${artists[currentArtist]?.image}`}
+                          alt={artists[currentArtist]?.name ?? ""}
+                          width={200}
+                          height={200}
+                          className="h-full w-full object-cover"
+                          onLoadingComplete={() => setIsImgLoading(false)}
+                          priority
+                        />
+                      </div>
+                    </div>
+
+                    {/* Artist info */}
+                    <div className="flex-1 text-center lg:text-left">
+                      {/* Name */}
+                      {isImgLoading ? (
+                        <div className="mb-3 h-6 w-48 animate-pulse rounded bg-gray-700 sm:h-7" />
+                      ) : (
+                        <h3 className="mb-2 text-xl font-bold text-white sm:text-2xl">
+                          {artists[currentArtist]?.name ?? ""}
+                        </h3>
+                      )}
+
+                      {/* Role */}
+                      {isImgLoading ? (
+                        <div className="mb-4 h-4 w-36 animate-pulse rounded bg-gray-700 sm:h-5" />
+                      ) : (
+                        <p className="mb-4 text-sm text-yellow-400 sm:text-base">
+                          {artists[currentArtist]?.role ?? ""}
+                        </p>
+                      )}
+
+                      {/* Description */}
+                      {isImgLoading ? (
+                        <div className="space-y-2">
+                          <div className="h-4 w-full animate-pulse rounded bg-gray-700" />
+                          <div className="h-4 w-11/12 animate-pulse rounded bg-gray-700" />
+                        </div>
+                      ) : (
+                        <p className="text-sm leading-relaxed text-gray-300 sm:text-base">
+                          {artists[currentArtist]?.description ?? ""}
+                        </p>
+                      )}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </div>
 
               {/* Navigation buttons */}
@@ -300,7 +352,11 @@ export default function HomePage() {
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
-
+              <button
+                onClick={nextArtist}
+                className={`${navBtnBase} right-0 translate-x-4 ${isImgLoading ? "opacity-60" : ""}`}
+                aria-label="Next artist"
+              />
               <button
                 onClick={nextArtist}
                 className="absolute top-1/2 right-0 translate-x-4 -translate-y-1/2 transform cursor-pointer rounded-full bg-yellow-400 p-2 text-black transition-colors hover:bg-yellow-500"
@@ -324,50 +380,6 @@ export default function HomePage() {
                   aria-label={`Go to artist ${index + 1}`}
                 />
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Program section */}
-        <section id="program" className="mb-12 sm:mb-16">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mb-6 text-center text-2xl font-bold text-yellow-400 sm:mb-8 sm:text-3xl">
-              公演プログラム
-            </h2>
-
-            <div className="rounded-lg bg-gray-900/50 p-6 sm:p-8">
-              <div className="space-y-6">
-                <div>
-                  <h3 className="mb-3 text-lg font-bold text-white sm:text-xl">
-                    前半（40分）
-                  </h3>
-                  <p className="text-sm text-gray-300 sm:text-base">
-                    能楽、書道、邦楽がそれぞれの演目を披露
-                  </p>
-                </div>
-
-                <div className="border-l-2 border-yellow-400 pl-4">
-                  <p className="text-sm text-gray-400">休憩 15-20分</p>
-                </div>
-
-                <div>
-                  <h3 className="mb-3 text-lg font-bold text-white sm:text-xl">
-                    後半（40分）
-                  </h3>
-                  <div className="space-y-2 text-sm text-gray-300 sm:text-base">
-                    <p>新作公演「水縁架橋」初演</p>
-                    <p className="text-xs text-gray-400 sm:text-sm">
-                      ※作品紹介のトークタイム（鼎談）を10分程度設けた後、作品上演
-                    </p>
-                  </div>
-                </div>
-
-                <div className="border-t border-gray-700 pt-4">
-                  <p className="text-sm text-gray-400">
-                    ※終演後は出演者との写真撮影やサイン会も予定しております
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -405,7 +417,6 @@ export default function HomePage() {
                     〒590-0974 大阪府堺市堺区大浜北町3丁4-7
                   </div>
                 </div>
-
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
                   <div className="font-semibold text-yellow-400">
                     主催・制作
@@ -415,6 +426,10 @@ export default function HomePage() {
                     <br />
                     一般社団法人「和音」
                   </div>
+                </div>
+                <div className="grid grid-cols-1 gap-2 sm:gap-4">
+                  <div className="font-semibold text-yellow-400">主催.運営</div>
+                  <div>和音・tsn</div>
                 </div>
               </div>
             </div>
@@ -489,18 +504,25 @@ export default function HomePage() {
 
         <section id="sns" className="text-center">
           <h2 className="mb-6 text-2xl font-bold text-yellow-400 sm:mb-8 sm:text-3xl">
-            公式SNS・お問い合わせ
+            お問い合わせ
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-sm leading-relaxed text-gray-300 sm:text-base">
-            最新情報は公式SNSでお知らせいたします。
+            公演に関するお問い合わせは
             <br />
-            公演に関するお問い合わせは一般社団法人「和音」までご連絡ください。
+            一般「株式会社tsn」までご連絡ください。
           </p>
-
-          <div className="text-sm text-gray-400">
-            <p>お問い合わせ：一般社団法人「和音」</p>
-            <p>Email: info@wa-on.or.jp（仮）</p>
-          </div>
+          <div className="mx-auto text-sm text-gray-400">
+            <div className="flex w-full justify-evenly">
+              <div className="mb-1 flex items-center justify-start gap-2">
+                <Mail className="h-4 w-4 text-yellow-400" />
+                <span>info@twtsn.co.jp</span>
+              </div>
+              <div className="flex items-center justify-start gap-2">
+                <Phone className="h-4 w-4 text-yellow-400" />
+                <span>072-284-9617</span>
+              </div>
+            </div>
+          </div>{" "}
         </section>
       </main>
     </div>
