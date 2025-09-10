@@ -460,7 +460,7 @@ export default function HomePage() {
                   <div>堺東ロータリークラブ</div>
                 </div>
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
-                  <div className="font-semibold text-yellow-400">主催</div>
+                  <div className="font-semibold text-yellow-400">協贊</div>
                   <div>
                     アーク不動産株式会社
                     <br />
@@ -468,7 +468,7 @@ export default function HomePage() {
                     <br />
                     株式会社トプコン
                     <br />
-                    伊藤嘉邦
+                    株式会社 朝日堂
                     <br />
                   </div>
                 </div>
