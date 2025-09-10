@@ -14,10 +14,10 @@ export default function HomePage() {
   // ✅ Single source of truth for navigation
   const navItems = useMemo(
     () => [
-      { id: "concept", label: "コンセプト" },
+      { id: "concept", label: "音橋空環" },
+      { id: "artists", label: "出演者紹介" },
+      { id: "producer", label: "作曲・監修" },
       { id: "event-overview", label: "開催概要" },
-      { id: "artists", label: "出演者" },
-      { id: "producer", label: "プロデューサー" },
       { id: "access", label: "会場アクセス" },
       { id: "ticket-info", label: "チケット情報" },
       { id: "sns", label: "お問い合わせ" },
@@ -32,7 +32,7 @@ export default function HomePage() {
         role: "能楽師",
         image: "津村禮次郎.webp",
         description:
-          "観世流緑泉会代表、重要無形文化財（能楽総合）保持者。1942年福岡県生まれ。一橋大学卒業後、津村紀三子、観世喜之に師事。1974年に緑泉会を継承し、伝統能楽の継承発展に尽力している。",
+          "観世流緑泉会代表、重要無形文化財（能楽総合）保持者、一般社団法人「和音」代表理事。1942年福岡県生まれ。一橋大学卒業後、津村紀三子、観世喜之に師事。1974年に緑泉会を継承し、伝統能楽の継承発展に尽力している。",
       },
       {
         name: "永山玳潤",
@@ -43,7 +43,7 @@ export default function HomePage() {
       },
       {
         name: "山中裕貴",
-        role: "篠笛奏者",
+        role: "和太鼓・篠笛奏者",
         image: "山中裕貴.webp",
         description:
           "兵庫県尼崎市出身。10歳で和太鼓に触れ、大阪音楽大学卒業後、kogakusyu翔に加入。2021年からソロ活動を開始し、和太鼓・篠笛奏者として国内外で演奏活動を行っている。",
@@ -62,7 +62,7 @@ export default function HomePage() {
   const producer = useMemo(
     () => ({
       name: "渋谷牧人",
-      role: "作曲・プロデューサー",
+      role: "作曲・監修",
       image: "渋谷牧人.webp",
       description:
         "宮城教育大学卒業。作曲家・一般社団法人「和音」専務理事。クラシックを基盤に、和楽器や能、琉球音楽との融合を探求。「雨ニモマケズ」「首里」などの舞台作品を発表し、国際的に活動している。",
@@ -219,21 +219,12 @@ export default function HomePage() {
         <section className="my-12 sm:my-16 md:mt-0">
           <div className="mx-auto max-w-4xl">
             <h2 className="mb-6 text-center text-2xl font-bold text-yellow-400 sm:mb-8 sm:text-3xl">
-              公演コンセプト
+              「{navItems[0]?.label}」
             </h2>
-
-            <div className="mb-8 text-center">
-              <h3 className="mb-4 text-xl font-bold text-white sm:text-2xl">
-                「水縁架橋」
-              </h3>
-              <p className="mb-4 text-lg text-gray-300">
-                「飲水思源」 時巡りて、我、橋となる
-              </p>
-            </div>
 
             <div className="space-y-6 text-sm leading-relaxed text-gray-300 sm:text-base">
               <p>
-                本公演「音橋空環」は、能楽・書道・邦楽を基盤に現代的な表現を融合した舞台芸術作品です。
+                本公演は、能楽・書道・邦楽を基盤に現代的な表現を融合した舞台芸術作品です。
                 象徴的モチーフである「水」を通じ、弘法大師（空海）と八田與一を題材に、日本と台湾、過去と現在を結ぶ文化の架け橋を描きます。
               </p>
 
@@ -270,7 +261,7 @@ export default function HomePage() {
         {/* Artists section */}
         <section id="artists" className="mb-12 sm:mb-16">
           <h2 className="mb-8 text-center text-2xl font-bold text-yellow-400 sm:text-3xl">
-            出演者紹介
+            {navItems[1]?.label}
           </h2>
 
           <div className="mx-auto max-w-4xl">
@@ -389,7 +380,7 @@ export default function HomePage() {
         {/* Producer Section*/}
         <section id="producer" className="mb-12 sm:mb-16">
           <h2 className="mb-8 text-center text-2xl font-bold text-yellow-400 sm:text-3xl">
-            {producer.role}
+            {navItems[2]?.label}
           </h2>
           <div className="mx-auto max-w-4xl">
             <div className="rounded-lg bg-gray-900/50 p-6 sm:p-8">
@@ -415,9 +406,6 @@ export default function HomePage() {
                     <h3 className="mb-2 text-xl font-bold text-white sm:text-2xl">
                       {producer.name}
                     </h3>
-                    <p className="mb-4 text-sm text-yellow-400 sm:text-base">
-                      {producer.role}
-                    </p>
                     <p className="text-sm leading-relaxed text-gray-300 sm:text-base">
                       {producer.description}
                     </p>
@@ -432,14 +420,14 @@ export default function HomePage() {
         <section id="event-overview" className="mb-12 sm:mb-16">
           <div className="mx-auto max-w-4xl">
             <h2 className="mb-6 text-center text-2xl font-bold text-yellow-400 sm:mb-8 sm:text-3xl">
-              開催概要
+              {navItems[3]?.label}
             </h2>
 
             <div className="rounded-lg bg-gray-900/50 p-6 sm:p-8">
               <div className="space-y-4 text-sm text-gray-300 sm:space-y-6 sm:text-base">
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
                   <div className="font-semibold text-yellow-400">公演日</div>
-                  <div>2025年11月30日（日）14:00-16:00</div>
+                  <div>2025年11月30日（日）</div>
                 </div>
 
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
@@ -456,17 +444,32 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
                   <div className="font-semibold text-yellow-400">会場</div>
                   <div>
-                    堺能楽会館
-                    <br />
-                    〒590-0974 大阪府堺市堺区大浜北町3丁4-7
+                    堺能楽会館 (〒590-0974 大阪府堺市堺区大浜北町3丁4-7)
                   </div>
                 </div>
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
                   <div className="font-semibold text-yellow-400">主催</div>
                   <div>
-                    ・一般社団法人「和音」
+                    一般社団法人「和音」
                     <br />
-                    ・株式会社tsn
+                    株式会社tsn
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 gap-2 sm:gap-4">
+                  <div className="font-semibold text-yellow-400">後援</div>
+                  <div>堺東ロータリークラブ</div>
+                </div>
+                <div className="grid grid-cols-1 gap-2 sm:gap-4">
+                  <div className="font-semibold text-yellow-400">主催</div>
+                  <div>
+                    アーク不動産株式会社
+                    <br />
+                    社会医療法人啓仁会咲花病院
+                    <br />
+                    株式会社トプコン
+                    <br />
+                    伊藤嘉邦
+                    <br />
                   </div>
                 </div>
               </div>
@@ -475,7 +478,7 @@ export default function HomePage() {
             {/* Google Maps section */}
             <section id="access" className="mt-8 sm:mt-12">
               <h2 className="mb-6 text-center text-2xl font-bold text-yellow-400 sm:mb-8 sm:text-3xl">
-                会場アクセス
+                {navItems[4]?.label}
               </h2>
               <div className="rounded-lg bg-gray-900/50 p-4 sm:p-6">
                 <div className="aspect-video w-full overflow-hidden rounded-lg">
@@ -509,7 +512,7 @@ export default function HomePage() {
         {/* Ticket section */}
         <section id="ticket-info" className="mb-12 text-center sm:mb-16">
           <h2 className="mb-3 text-2xl font-bold text-yellow-400 sm:mb-4 sm:text-3xl">
-            チケット情報
+            {navItems[5]?.label}
           </h2>
 
           <div className="mx-auto mb-8 max-w-2xl">
@@ -542,12 +545,12 @@ export default function HomePage() {
 
         <section id="sns" className="text-center">
           <h2 className="mb-6 text-2xl font-bold text-yellow-400 sm:mb-8 sm:text-3xl">
-            お問い合わせ
+            {navItems[6]?.label}
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-sm leading-relaxed text-gray-300 sm:text-base">
             公演に関するお問い合わせは
             <br />
-            「株式会社tsn」までご連絡ください。
+            株式会社tsnまでご連絡ください。
           </p>
           <div className="mx-auto text-sm text-gray-400">
             <div className="flex w-full justify-evenly">
