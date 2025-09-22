@@ -20,7 +20,7 @@ export default function HomePage() {
       { id: "event-overview", label: "開催概要" },
       { id: "access", label: "会場アクセス" },
       { id: "ticket-info", label: "チケット情報" },
-      { id: "sponsor", label: "協賛" },
+      { id: "sponsors", label: "協賛" },
       { id: "sns", label: "お問い合わせ" },
     ],
     [],
