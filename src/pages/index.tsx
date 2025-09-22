@@ -461,14 +461,10 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
                   <div className="font-semibold text-yellow-400">主催</div>
                   <div>
-                    一般社団法人「和音」
+                    一般社団法人和音
                     <br />
                     株式会社tsn
                   </div>
-                </div>
-                <div className="grid grid-cols-1 gap-2 sm:gap-4">
-                  <div className="font-semibold text-yellow-400">後援</div>
-                  <div>堺東ロータリークラブ</div>
                 </div>
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
                   <div className="font-semibold text-yellow-400">協贊</div>
@@ -530,7 +526,6 @@ export default function HomePage() {
           <div className="mx-auto max-w-5xl">
             {/* Pricing grid */}
             <div className="mb-8">
-              <h3 className="mb-6 text-xl font-semibold text-white">料金</h3>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 <div className="rounded-lg border border-yellow-400/30 bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 p-4">
                   <div className="mb-2 font-bold text-yellow-400">SS席</div>
@@ -650,9 +645,6 @@ export default function HomePage() {
         </section>
 
         <section id="sponsors" className="mb-12 sm:mb-16">
-          <h2 className="mb-6 text-center text-2xl font-bold text-yellow-400 sm:mb-8 sm:text-3xl">
-            {navItems[6]?.label}
-          </h2>
           <div className="relative overflow-hidden rounded-lg bg-gray-900/30 pt-8">
             {/* Floating sponsors container */}
             <div
