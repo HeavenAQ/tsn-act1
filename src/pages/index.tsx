@@ -20,7 +20,18 @@ export default function HomePage() {
       { id: "event-overview", label: "開催概要" },
       { id: "access", label: "会場アクセス" },
       { id: "ticket-info", label: "チケット情報" },
+      { id: "sponsor", label: "協賛" },
       { id: "sns", label: "お問い合わせ" },
+    ],
+    [],
+  );
+
+  const sponsors = useMemo(
+    () => [
+      { name: "real-estate", src: "real-estate-sponsor.webp" },
+      { name: "asaahido", src: "asahido-sponsor.webp" },
+      { name: "sakibana", src: "sakibana-sponsor.webp" },
+      { name: "topcon", src: "topcon-sponsor.webp" },
     ],
     [],
   );
@@ -460,7 +471,7 @@ export default function HomePage() {
                   <div>堺東ロータリークラブ</div>
                 </div>
                 <div className="grid grid-cols-1 gap-2 sm:gap-4">
-                  <div className="font-semibold text-yellow-400">主催</div>
+                  <div className="font-semibold text-yellow-400">協贊</div>
                   <div>
                     アーク不動産株式会社
                     <br />
@@ -468,7 +479,7 @@ export default function HomePage() {
                     <br />
                     株式会社トプコン
                     <br />
-                    伊藤嘉邦
+                    株式会社 朝日堂
                     <br />
                   </div>
                 </div>
@@ -502,50 +513,213 @@ export default function HomePage() {
                     <p>• 南海バス「大浜公園前」停留所より徒歩約3分</p>
                   </div>
                   <p className="mt-3 text-xs text-gray-400">
-                    ※駐車場に限りがございますので、公共交通機関のご利用をお勧めいたします
+                    ※現地に駐車場がございませんので、堺駅周辺のコインパーキング等をご利用ください。御足労をおかけいたします。{" "}
                   </p>
                 </div>
               </div>
             </section>
           </div>
         </section>
+
         {/* Ticket section */}
         <section id="ticket-info" className="mb-12 text-center sm:mb-16">
-          <h2 className="mb-3 text-2xl font-bold text-yellow-400 sm:mb-4 sm:text-3xl">
-            {navItems[5]?.label}
+          <h2 className="mb-6 text-2xl font-bold text-yellow-400 sm:mb-8 sm:text-3xl">
+            チケット情報
           </h2>
 
-          <div className="mx-auto mb-8 max-w-2xl">
-            <div className="grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
-              <div className="rounded-lg bg-gray-900/50 p-4">
-                <div className="mb-2 font-bold text-yellow-400">SS席</div>
-                <div className="text-lg text-white">¥20,000</div>
+          <div className="mx-auto max-w-5xl">
+            {/* Pricing grid */}
+            <div className="mb-8">
+              <h3 className="mb-6 text-xl font-semibold text-white">料金</h3>
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+                <div className="rounded-lg border border-yellow-400/30 bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 p-4">
+                  <div className="mb-2 font-bold text-yellow-400">SS席</div>
+                  <div className="text-xl font-bold text-white">¥20,000</div>
+                </div>
+                <div className="rounded-lg border border-yellow-400/20 bg-gradient-to-br from-yellow-400/15 to-yellow-600/15 p-4">
+                  <div className="mb-2 font-bold text-yellow-400">S席</div>
+                  <div className="text-xl font-bold text-white">¥10,000</div>
+                </div>
+                <div className="rounded-lg border border-yellow-400/20 bg-gradient-to-br from-yellow-400/15 to-yellow-600/15 p-4">
+                  <div className="mb-2 font-bold text-yellow-400">A席</div>
+                  <div className="text-xl font-bold text-white">¥8,000</div>
+                </div>
+                <div className="rounded-lg border border-yellow-400/20 bg-gradient-to-br from-yellow-400/15 to-yellow-600/15 p-4">
+                  <div className="mb-2 font-bold text-yellow-400">一般席</div>
+                  <div className="text-xl font-bold text-white">¥5,000</div>
+                </div>
               </div>
-              <div className="rounded-lg bg-gray-900/50 p-4">
-                <div className="mb-2 font-bold text-yellow-400">S席</div>
-                <div className="text-lg text-white">¥10,000</div>
+            </div>
+
+            {/* Purchase methods */}
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div className="rounded-lg border border-gray-600/30 bg-gradient-to-br from-gray-900/60 to-gray-800/60 p-6">
+                <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-yellow-400">
+                  <div className="h-2 w-2 rounded-full bg-yellow-400"></div>
+                  ローソンチケット
+                </h3>
+                <div className="space-y-3 text-left">
+                  <div className="flex items-center gap-3">
+                    <span className="font-medium text-yellow-400">URL:</span>
+                    <a
+                      href="https://l-tike.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-400 underline transition-colors hover:text-blue-300"
+                    >
+                      https://l-tike.com
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-medium text-yellow-400">
+                      Lコード:
+                    </span>
+                    <span className="font-mono text-lg text-white">53805</span>
+                  </div>
+                </div>
               </div>
-              <div className="rounded-lg bg-gray-900/50 p-4">
-                <div className="mb-2 font-bold text-yellow-400">A席</div>
-                <div className="text-lg text-white">¥8,000</div>
+
+              <div className="rounded-lg border border-gray-600/30 bg-gradient-to-br from-gray-900/60 to-gray-800/60 p-6">
+                <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-yellow-400">
+                  <div className="h-2 w-2 rounded-full bg-yellow-400"></div>
+                  直接購入
+                </h3>
+                <div className="space-y-3 text-left">
+                  <div>
+                    <div className="mb-1 font-medium text-white">
+                      株式会社tsn
+                    </div>
+                    <div className="flex flex-col gap-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <Phone className="h-4 w-4 text-yellow-400" />
+                        <span className="text-gray-300">072-284-9617</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Mail className="h-4 w-4 text-yellow-400" />
+                        <span className="text-gray-300">info@twtsn.co.jp</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="rounded-lg bg-gray-900/50 p-4">
-                <div className="mb-2 font-bold text-yellow-400">一般席</div>
-                <div className="text-lg text-white">¥5,000</div>
+            </div>
+
+            <div className="mt-8 rounded-lg border border-gray-600/30 bg-gradient-to-br from-gray-900/60 to-gray-800/60 p-6">
+              <h3 className="mb-4 text-center text-lg font-bold text-yellow-400">
+                振込先情報
+              </h3>
+              <div className="grid gap-4 text-sm sm:grid-cols-2 lg:grid-cols-4">
+                <div className="text-left sm:text-center">
+                  <div className="mb-2 font-medium text-yellow-400">銀行名</div>
+                  <div className="text-white">泉州池田銀行</div>
+                </div>
+                <div className="text-left sm:text-center">
+                  <div className="mb-2 font-medium text-yellow-400">支店名</div>
+                  <div className="text-white">鳳支店</div>
+                </div>
+                <div className="text-left sm:text-center">
+                  <div className="mb-2 font-medium text-yellow-400">
+                    口座番号
+                  </div>
+                  <div className="font-mono text-white">普通 3113368</div>
+                </div>
+                <div className="text-left sm:text-center">
+                  <div className="mb-2 font-medium text-yellow-400">
+                    口座名義
+                  </div>
+                  <div className="text-white">カ）テイエスエヌ</div>
+                </div>
+              </div>
+
+              <div className="mt-6 rounded-lg border border-yellow-400/30 bg-yellow-400/10 p-4">
+                <div className="flex items-start gap-3">
+                  <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-yellow-400"></div>
+                  <div className="text-left">
+                    <div className="mb-1 font-semibold text-yellow-400">
+                      重要なお知らせ
+                    </div>
+                    <div className="text-left text-sm leading-relaxed text-gray-300">
+                      振込完了後、確認のためお名前と振込日を info@twtsn.co.jp
+                      までご連絡ください。
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-gray-400 sm:text-base">
-            チケットのご予約・お問い合わせは
-            <br />
-            お早めのご予約をおすすめいたします。
-          </p>
         </section>
 
+        <section id="sponsors" className="mb-12 sm:mb-16">
+          <h2 className="mb-6 text-center text-2xl font-bold text-yellow-400 sm:mb-8 sm:text-3xl">
+            {navItems[6]?.label}
+          </h2>
+          <div className="relative overflow-hidden rounded-lg bg-gray-900/30 pt-8">
+            {/* Floating sponsors container */}
+            <div
+              className="animate-scroll flex space-x-8"
+              style={{ scrollBehavior: "auto" }}
+            >
+              {/* First set of sponsors */}
+              {sponsors.map((sponsor, index) => (
+                <div key={`first-${index}`} className="flex-shrink-0">
+                  <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-4 shadow-lg backdrop-blur-sm transition-transform hover:scale-110">
+                    <Image
+                      src={`/${sponsor.src}`}
+                      alt={sponsor.name}
+                      width={100}
+                      height={100}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
+
+              {sponsors.map((sponsor, index) => (
+                <div key={`first-${index}`} className="flex-shrink-0">
+                  <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-4 shadow-lg backdrop-blur-sm transition-transform hover:scale-110">
+                    <Image
+                      src={`/${sponsor.src}`}
+                      alt={sponsor.name}
+                      width={100}
+                      height={100}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
+              {sponsors.map((sponsor, index) => (
+                <div key={`first-${index}`} className="flex-shrink-0">
+                  <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-4 shadow-lg backdrop-blur-sm transition-transform hover:scale-110">
+                    <Image
+                      src={`/${sponsor.src}`}
+                      alt={sponsor.name}
+                      width={100}
+                      height={100}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
+
+              {sponsors.map((sponsor, index) => (
+                <div key={`first-${index}`} className="flex-shrink-0">
+                  <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-4 shadow-lg backdrop-blur-sm transition-transform hover:scale-110">
+                    <Image
+                      src={`/${sponsor.src}`}
+                      alt={sponsor.name}
+                      width={100}
+                      height={100}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
         <section id="sns" className="text-center">
           <h2 className="mb-6 text-2xl font-bold text-yellow-400 sm:mb-8 sm:text-3xl">
-            {navItems[6]?.label}
+            {navItems[7]?.label}
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-sm leading-relaxed text-gray-300 sm:text-base">
             公演に関するお問い合わせは
@@ -566,6 +740,25 @@ export default function HomePage() {
           </div>{" "}
         </section>
       </main>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+        }
+
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </div>
   );
 }
