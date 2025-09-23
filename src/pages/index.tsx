@@ -547,152 +547,124 @@ export default function HomePage() {
             </div>
 
             {/* Purchase methods */}
-            <div className="grid gap-6 lg:grid-cols-2">
+            <div className="mt-8 rounded-lg border border-gray-600/30 bg-gradient-to-br from-gray-900/60 to-gray-800/60 p-6">
+              <h3 className="mb-6 text-left text-xl font-bold text-yellow-400">
+                ご購入方法
+              </h3>
+
               {/* Lawson Ticket */}
-              <div className="rounded-lg border border-gray-600/30 bg-gradient-to-br from-gray-900/60 to-gray-800/60 p-6">
-                <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-yellow-400">
+              <div className="mb-6">
+                <h4 className="mb-2 flex items-center gap-2 text-lg font-bold text-yellow-400">
                   <div className="h-2 w-2 rounded-full bg-yellow-400" />
                   ローソンチケット
-                </h3>
-                <div className="space-y-3 text-left">
-                  <div className="flex items-center gap-3">
-                    <span className="font-medium text-yellow-400">URL：</span>
+                </h4>
+                <ul className="ml-4 list-disc space-y-1 text-left text-sm text-gray-300">
+                  <li>
+                    URL：
                     <a
                       href="https://l-tike.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-400 underline transition-colors hover:text-blue-300"
+                      className="ml-1 text-blue-400 underline hover:text-blue-300"
                     >
                       https://l-tike.com
                     </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="font-medium text-yellow-400">
-                      Lコード：
-                    </span>
-                    <span className="font-mono text-lg text-white">53805</span>
-                  </div>
-                </div>
+                  </li>
+                  <li>
+                    Lコード：<span className="font-mono text-white">53805</span>
+                  </li>
+                </ul>
               </div>
 
-              {/* Direct purchase from organizer */}
-              <div className="rounded-lg border border-gray-600/30 bg-gradient-to-br from-gray-900/60 to-gray-800/60 p-6">
-                <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-yellow-400">
+              {/* Direct purchase */}
+              <div className="mb-6">
+                <h4 className="mb-2 flex items-center gap-2 text-lg font-bold text-yellow-400">
                   <div className="h-2 w-2 rounded-full bg-yellow-400" />
                   主催者（株式会社tsn）からのご購入
-                </h3>
-                <div className="space-y-3 text-left">
-                  <div className="mb-1 font-medium text-white">
-                    お問い合わせ
+                </h4>
+                <ul className="ml-4 list-disc space-y-1 text-left text-sm text-gray-300">
+                  <li>
+                    電話：
+                    <a href="tel:0722849617" className="ml-1 hover:underline">
+                      072-284-9617
+                    </a>
+                  </li>
+                  <li>
+                    メール：
+                    <a
+                      href="mailto:info@twtsn.co.jp"
+                      className="ml-1 hover:underline"
+                    >
+                      info@twtsn.co.jp
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <hr className="my-12 h-[2px] rounded-full border-0 bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-400 shadow-lg" />
+
+              {/* Bank transfer */}
+              <div className="mb-6">
+                <h4 className="mb-2 flex items-center gap-2 text-lg font-bold text-yellow-400">
+                  <div className="h-2 w-2 rounded-full bg-yellow-400" />
+                  お振込先情報
+                </h4>
+                <div className="grid gap-4 text-left text-sm text-gray-300">
+                  <div>
+                    <div className="font-medium text-yellow-400">銀行名</div>
+                    <div>泉州池田銀行</div>
                   </div>
-                  <div className="flex flex-col gap-2 text-sm">
-                    <div className="flex items-center gap-2">
-                      {/* Phone icon */}
-                      <svg
-                        className="h-4 w-4 text-yellow-400"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.09a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92Z"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                      <a
-                        href="tel:0722849617"
-                        className="text-gray-300 hover:underline"
-                      >
-                        072-284-9617
-                      </a>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      {/* Mail icon */}
-                      <svg
-                        className="h-4 w-4 text-yellow-400"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M3 5h18v14H3V5Zm18 0-9 7L3 5"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                      <a
-                        href="mailto:info@twtsn.co.jp"
-                        className="text-gray-300 hover:underline"
-                      >
-                        info@twtsn.co.jp
-                      </a>
+                  <div>
+                    <div className="font-medium text-yellow-400">支店名</div>
+                    <div>鳳支店</div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-yellow-400">口座番号</div>
+                    <div className="font-mono">普通 3113368</div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-yellow-400">口座名義</div>
+                    <div>カ）ティエスエヌ</div>
+                  </div>
+                </div>
+
+                {/* Important notice with yellow dot */}
+                <div className="mt-4 rounded-lg border border-yellow-400/30 bg-yellow-400/10 p-3">
+                  <div className="flex items-start gap-3">
+                    <div className="text-left">
+                      <div className="mb-1 font-semibold text-yellow-400">
+                        重要なお知らせ
+                      </div>
+                      <p className="text-sm leading-relaxed text-gray-300">
+                        お振込後は確認のため「お名前」と「振込日」を
+                        <a
+                          href="mailto:info@twtsn.co.jp"
+                          className="ml-1 underline hover:text-yellow-300"
+                        >
+                          info@twtsn.co.jp
+                        </a>
+                        までお知らせください。
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+              <hr className="my-12 h-[2px] rounded-full border-0 bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-400 shadow-lg" />
 
-            {/* Bank transfer info */}
-            <div className="mt-8 rounded-lg border border-gray-600/30 bg-gradient-to-br from-gray-900/60 to-gray-800/60 p-6">
-              <h3 className="mb-4 text-center text-lg font-bold text-yellow-400">
-                お振込先情報
-              </h3>
-              <div className="grid gap-4 text-sm sm:grid-cols-2 lg:grid-cols-4">
-                <div className="text-left sm:text-center">
-                  <div className="mb-2 font-medium text-yellow-400">銀行名</div>
-                  <div className="text-white">泉州池田銀行</div>
-                </div>
-                <div className="text-left sm:text-center">
-                  <div className="mb-2 font-medium text-yellow-400">支店名</div>
-                  <div className="text-white">鳳支店</div>
-                </div>
-                <div className="text-left sm:text-center">
-                  <div className="mb-2 font-medium text-yellow-400">
-                    口座番号
-                  </div>
-                  <div className="font-mono text-white">普通 3113368</div>
-                </div>
-                <div className="text-left sm:text-center">
-                  <div className="mb-2 font-medium text-yellow-400">
-                    口座名義
-                  </div>
-                  <div className="text-white">カ）ティエスエヌ</div>
-                </div>
+              {/* Ticket delivery */}
+              <div>
+                <h4 className="mb-2 flex items-center gap-2 text-lg font-bold text-yellow-400">
+                  <div className="h-2 w-2 rounded-full bg-yellow-400" />
+                  チケットのお渡しについて
+                </h4>
+                <p className="text-left text-sm leading-relaxed text-gray-300">
+                  主催者（株式会社tsn）からご購入いただいたチケットは、
+                  お振込確認メールをいただいた後に、
+                  <span className="font-medium text-yellow-400">郵送</span>
+                  または
+                  <span className="font-medium text-yellow-400">会場受付</span>
+                  にてお渡しいたします。
+                </p>
               </div>
-
-              <div className="mt-6 rounded-lg border border-yellow-400/30 bg-yellow-400/10 p-4">
-                <div className="flex items-start gap-3">
-                  <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-yellow-400" />
-                  <div className="text-left">
-                    <div className="mb-1 font-semibold text-yellow-400">
-                      重要なお知らせ
-                    </div>
-                    <p className="text-left text-sm leading-relaxed text-gray-300">
-                      お振込後は確認のため「お名前」と「振込日」を
-                      <a
-                        href="mailto:info@twtsn.co.jp"
-                        className="ml-1 underline hover:text-yellow-300"
-                      >
-                        info@twtsn.co.jp
-                      </a>
-                      までお知らせください。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Ticket delivery notice */}
-            <div className="mt-6 rounded-lg border border-gray-600/30 bg-gradient-to-br from-gray-900/60 to-gray-800/60 p-6">
-              <h3 className="mb-3 text-center text-lg font-bold text-yellow-400">
-                チケットのお渡しについて
-              </h3>
-              <p className="text-left text-sm leading-relaxed text-gray-300">
-                主催者（株式会社tsn）からご購入いただいたチケットのお渡し方法は、
-                お客様からの振込確認メールをいただいた後に、tsnより郵送または会場受付での
-                お渡しについてご案内いたします。
-              </p>
             </div>
           </div>
         </section>
