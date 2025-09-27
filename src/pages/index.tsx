@@ -1,11 +1,12 @@
 "use client";
 
 import { Button } from "../components/ui/button";
-import { Menu, X, ChevronLeft, ChevronRight, Mail, Phone } from "lucide-react";
+import { Menu, X, ChevronLeft, ChevronRight, Mail, Phone, Ticket } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import TicketPurchaseSection from "~/components/sections/TicketPurchaseSection";
 
 export default function HomePage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -296,9 +297,8 @@ export default function HomePage() {
                       )}
 
                       <div
-                        className={`h-32 w-32 overflow-hidden rounded-full border-4 border-yellow-400 sm:h-40 sm:w-40 lg:h-48 lg:w-48 ${
-                          isImgLoading ? "invisible" : "visible"
-                        }`}
+                        className={`h-32 w-32 overflow-hidden rounded-full border-4 border-yellow-400 sm:h-40 sm:w-40 lg:h-48 lg:w-48 ${isImgLoading ? "invisible" : "visible"
+                          }`}
                       >
                         <Image
                           src={`/${artists[currentArtist]?.image}`}
@@ -376,11 +376,10 @@ export default function HomePage() {
                 <button
                   key={index}
                   onClick={() => setCurrentArtist(index)}
-                  className={`h-3 w-3 rounded-full transition-colors ${
-                    index === currentArtist
-                      ? "bg-yellow-400"
-                      : "bg-gray-600 hover:bg-gray-500"
-                  }`}
+                  className={`h-3 w-3 rounded-full transition-colors ${index === currentArtist
+                    ? "bg-yellow-400"
+                    : "bg-gray-600 hover:bg-gray-500"
+                    }`}
                   aria-label={`Go to artist ${index + 1}`}
                 />
               ))}
@@ -546,126 +545,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Purchase methods */}
-            <div className="mt-8 rounded-lg border border-gray-600/30 bg-gradient-to-br from-gray-900/60 to-gray-800/60 p-6">
-              <h3 className="mb-6 text-left text-xl font-bold text-yellow-400">
-                ご購入方法
-              </h3>
-
-              {/* Lawson Ticket */}
-              <div className="mb-6">
-                <h4 className="mb-2 flex items-center gap-2 text-lg font-bold text-yellow-400">
-                  <div className="h-2 w-2 rounded-full bg-yellow-400" />
-                  ローソンチケット
-                </h4>
-                <ul className="ml-4 list-disc space-y-1 text-left text-sm text-gray-300">
-                  <li>
-                    URL：
-                    <a
-                      href="https://l-tike.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ml-1 text-blue-400 underline hover:text-blue-300"
-                    >
-                      https://l-tike.com
-                    </a>
-                  </li>
-                  <li>
-                    Lコード：<span className="font-mono text-white">53805</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Direct purchase */}
-              <div className="mb-6">
-                <h4 className="mb-2 flex items-center gap-2 text-lg font-bold text-yellow-400">
-                  <div className="h-2 w-2 rounded-full bg-yellow-400" />
-                  主催者（株式会社tsn）からのご購入
-                </h4>
-                <ul className="ml-4 list-disc space-y-1 text-left text-sm text-gray-300">
-                  <li>
-                    電話：
-                    <a href="tel:0722849617" className="ml-1 hover:underline">
-                      072-284-9617
-                    </a>
-                  </li>
-                  <li>
-                    メール：
-                    <a
-                      href="mailto:info@twtsn.co.jp"
-                      className="ml-1 hover:underline"
-                    >
-                      info@twtsn.co.jp
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <hr className="my-12 h-[2px] rounded-full border-0 bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-400 shadow-lg" />
-
-              {/* Bank transfer */}
-              <div className="mb-6">
-                <h4 className="mb-2 flex items-center gap-2 text-lg font-bold text-yellow-400">
-                  <div className="h-2 w-2 rounded-full bg-yellow-400" />
-                  お振込先情報
-                </h4>
-                <div className="grid gap-4 text-left text-sm text-gray-300">
-                  <div>
-                    <div className="font-medium text-yellow-400">銀行名</div>
-                    <div>泉州池田銀行</div>
-                  </div>
-                  <div>
-                    <div className="font-medium text-yellow-400">支店名</div>
-                    <div>鳳支店</div>
-                  </div>
-                  <div>
-                    <div className="font-medium text-yellow-400">口座番号</div>
-                    <div className="font-mono">普通 3113368</div>
-                  </div>
-                  <div>
-                    <div className="font-medium text-yellow-400">口座名義</div>
-                    <div>カ）ティエスエヌ</div>
-                  </div>
-                </div>
-
-                {/* Important notice with yellow dot */}
-                <div className="mt-4 rounded-lg border border-yellow-400/30 bg-yellow-400/10 p-3">
-                  <div className="flex items-start gap-3">
-                    <div className="text-left">
-                      <div className="mb-1 font-semibold text-yellow-400">
-                        重要なお知らせ
-                      </div>
-                      <p className="text-sm leading-relaxed text-gray-300">
-                        お振込後は確認のため「お名前」と「振込日」を
-                        <a
-                          href="mailto:info@twtsn.co.jp"
-                          className="ml-1 underline hover:text-yellow-300"
-                        >
-                          info@twtsn.co.jp
-                        </a>
-                        までお知らせください。
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr className="my-12 h-[2px] rounded-full border-0 bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-400 shadow-lg" />
-
-              {/* Ticket delivery */}
-              <div>
-                <h4 className="mb-2 flex items-center gap-2 text-lg font-bold text-yellow-400">
-                  <div className="h-2 w-2 rounded-full bg-yellow-400" />
-                  チケットのお渡しについて
-                </h4>
-                <p className="text-left text-sm leading-relaxed text-gray-300">
-                  主催者（株式会社tsn）からご購入いただいたチケットは、
-                  お振込確認メールをいただいた後に、
-                  <span className="font-medium text-yellow-400">郵送</span>
-                  または
-                  <span className="font-medium text-yellow-400">会場受付</span>
-                  にてお渡しいたします。
-                </p>
-              </div>
-            </div>
+            <TicketPurchaseSection />
           </div>
         </section>
 
