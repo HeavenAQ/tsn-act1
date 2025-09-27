@@ -20,7 +20,7 @@ export default function TicketPurchaseSection() {
             >
               info@twtsn.co.jp
             </a>
-            {" へメールしてください。"}
+            へメールしてください。
           </p>
         </div>
 
@@ -59,7 +59,7 @@ export default function TicketPurchaseSection() {
         </div>
 
         {/* Important notices */}
-        <div className="mb-4 rounded-lg border border-yellow-400/30 bg-yellow-400/10 p-3">
+        <div className="mb-6 rounded-lg border border-yellow-400/30 bg-yellow-400/10 p-3">
           <div className="flex items-start gap-3">
             <div className="text-left">
               <div className="mb-2 font-semibold text-yellow-400">
@@ -86,10 +86,8 @@ export default function TicketPurchaseSection() {
         </div>
       </div>
 
-      <hr className="my-8 h-[2px] rounded-full border-0 bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-400 shadow-lg" />
-
       {/* Bank transfer information */}
-      <div>
+      <div className="mb-6">
         <h4 className="mb-3 flex items-center gap-2 text-lg font-bold text-yellow-400">
           <div className="h-2 w-2 rounded-full bg-yellow-400" />
           〈振込先情報〉
@@ -125,6 +123,77 @@ export default function TicketPurchaseSection() {
           </div>
         </div>
       </div>
+
+      {/* Lawson Ticket */}
+      <div className="mb-6">
+        <h4 className="mb-3 flex items-center gap-2 text-lg font-bold text-yellow-400">
+          <div className="text-lg">⭕️</div>
+          ローソンチケット
+        </h4>
+        <div className="grid gap-3 text-left text-sm text-gray-300">
+          <div className="flex items-start gap-2">
+            <span className="text-yellow-400 mt-1">•</span>
+            <div>
+              Webで簡単購入：
+              <a
+                href="https://l-tike.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-1 text-blue-400 underline hover:text-blue-300"
+              >
+                https://l-tike.com
+              </a>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <span className="text-yellow-400 mt-1">•</span>
+            <div>
+              Lコード：<span className="font-mono text-white">53805</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Payment information */}
+      <div className="mb-6">
+        <h4 className="mb-3 flex items-center gap-2 text-lg font-bold text-yellow-400">
+          <div className="h-2 w-2 rounded-full bg-yellow-400" />
+          〈お支払いについて〉
+        </h4>
+        <p className="text-left text-sm text-gray-300">
+          WEB購入はクレジット決済、ローソンでの購入はその場で現金となります。
+        </p>
+      </div>
+
+      <hr className="my-8 h-[2px] rounded-full border-0 bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-400 shadow-lg" />
+
+      {/* Contact information */}
+      <div>
+        <h4 className="mb-3 flex items-center gap-2 text-lg font-bold text-yellow-400">
+          <div className="text-lg">⭐</div>
+          チケット購入・お問い合わせ
+        </h4>
+        <div className="text-left text-sm text-gray-300">
+          <div className="mb-2 font-medium text-yellow-400">株式会社tsn</div>
+          <div className="grid gap-2">
+            <div>
+              電話：
+              <a href="tel:0722849617" className="ml-1 hover:underline">
+                072-284-9617
+              </a>
+            </div>
+            <div>
+              メール：
+              <a
+                href="mailto:info@twtsn.co.jp"
+                className="ml-1 text-blue-400 underline hover:text-blue-300"
+              >
+                info@twtsn.co.jp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+} 
