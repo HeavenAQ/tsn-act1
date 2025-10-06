@@ -34,6 +34,7 @@ export default function HomePage() {
       { name: "asaahido", src: "asahido-sponsor.webp" },
       { name: "sakibana", src: "sakibana-sponsor.webp" },
       { name: "topcon", src: "topcon-sponsor.webp" },
+      { name: "shwo-mon-art", src: "show-mon-art.webp" }
     ],
     [],
   );
@@ -52,7 +53,7 @@ export default function HomePage() {
         role: "書道家",
         image: "永山玳潤.webp",
         description:
-          "1971年大阪府高石市生まれ。4歳より書道を学び、プロ書道家として国内外で活動。JRA有馬記念の題字や企業ロゴを手がけ、古典に基づく伝統と独創性を融合させた書の表現を世界に発信している。",
+          "1971年大阪府高石市生まれ。4歳より書道を学び、宮下寛昇師に師事。現在はプロ書道家として国内外で活動。JRA有馬記念の題字や企業ロゴを手がけ、古典に基づく伝統と独創性を融合させた書の表現を世界に発信している。",
       },
       {
         name: "山中裕貴",
@@ -473,6 +474,12 @@ export default function HomePage() {
                       一般社団法人和音
                       <br />
                       株式会社tsn
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2 sm:gap-4">
+                    <div className="font-semibold text-yellow-400">後援</div>
+                    <div>
+                      株式会社Show-Mon Art
                     </div>
                   </div>
                   <div className="grid grid-cols-1 gap-2 sm:gap-4">
