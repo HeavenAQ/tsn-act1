@@ -567,16 +567,12 @@ export default function HomePage() {
           </section>
 
           <section id="sponsors" className="mb-12 sm:mb-16">
-            <div className="relative overflow-hidden rounded-lg bg-gray-900/30 pt-8">
-              {/* Floating sponsors container */}
-              <div
-                className="animate-scroll flex space-x-8"
-                style={{ scrollBehavior: "auto" }}
-              >
-                {/* First set of sponsors */}
-                {sponsors.map((sponsor, index) => (
-                  <div key={`first-${index}`} className="flex-shrink-0">
-                    <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-4 shadow-lg backdrop-blur-sm transition-transform hover:scale-110">
+            <div className="relative overflow-hidden rounded-lg p-8">
+              {/* Grid layout for sponsors */}
+              <div className="flex flex-wrap justify-center gap-x-14 md:gap-y-4 lg:grid lg:grid-cols-5 lg:gap-6">
+                {sponsors.slice(0, 3).map((sponsor, index) => (
+                  <div key={index} className="flex justify-center">
+                    <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-white p-4 shadow-lg transition-transform hover:scale-110 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
                       <Image
                         src={`/${sponsor.src}`}
                         alt={sponsor.name}
@@ -588,36 +584,12 @@ export default function HomePage() {
                   </div>
                 ))}
 
-                {sponsors.map((sponsor, index) => (
-                  <div key={`first-${index}`} className="flex-shrink-0">
-                    <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-4 shadow-lg backdrop-blur-sm transition-transform hover:scale-110">
-                      <Image
-                        src={`/${sponsor.src}`}
-                        alt={sponsor.name}
-                        width={100}
-                        height={100}
-                        className="h-full w-full object-contain"
-                      />
-                    </div>
-                  </div>
-                ))}
-                {sponsors.map((sponsor, index) => (
-                  <div key={`first-${index}`} className="flex-shrink-0">
-                    <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-4 shadow-lg backdrop-blur-sm transition-transform hover:scale-110">
-                      <Image
-                        src={`/${sponsor.src}`}
-                        alt={sponsor.name}
-                        width={100}
-                        height={100}
-                        className="h-full w-full object-contain"
-                      />
-                    </div>
-                  </div>
-                ))}
+                {/* Force break to new row on small screens */}
+                <div className="w-full lg:hidden"></div>
 
-                {sponsors.map((sponsor, index) => (
-                  <div key={`first-${index}`} className="flex-shrink-0">
-                    <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-4 shadow-lg backdrop-blur-sm transition-transform hover:scale-110">
+                {sponsors.slice(3).map((sponsor, index) => (
+                  <div key={index + 3} className="flex justify-center">
+                    <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-white p-4 shadow-lg transition-transform hover:scale-110 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
                       <Image
                         src={`/${sponsor.src}`}
                         alt={sponsor.name}
@@ -654,25 +626,6 @@ export default function HomePage() {
             </div>{" "}
           </section>
         </main>
-
-        <style jsx>{`
-@keyframes scroll {
-0% {
-transform: translateX(0);
-}
-100% {
-transform: translateX(-50%);
-}
-}
-
-.animate-scroll {
-animation: scroll 30s linear infinite;
-}
-
-.animate-scroll:hover {
-animation-play-state: paused;
-}
-`}</style>
       </div>
     </>
   );
